@@ -1,12 +1,5 @@
 %
-%Assignment1
-%Kateryna Chernega
-%7246161
-%
-
-
-%
-%QUESTION 1b
+%QUESTION 1
 %
 p1(X,Y):-p3(X),p2(Y,X).
 p2(X,Y):-p3(X),p4(Y),X\=Y,!.
