@@ -1,4 +1,7 @@
 #lang racket
+
+;Function accept string and a letter, and removes all the occurences of that letter from the string.
+
 (define (removeLetter string char)
   (list->string (removeLetter2 (string->list string) char))
   )
