@@ -1,3 +1,17 @@
+/*
+Write a program that reads two text files combines them and writes the combination to a new file.
+The program should read two text files (input1.txt and input2.txt) and put all
+words, one at a time, into a separate channel for each file. 
+There should be two goroutines for the two files feeding into two separate channels.
+Another input source is a timer which should be continuously counting down, i.e., once it is triggered, it needs to be reset again.
+In a select statement (non-blocking receive) the two input channels and the timer should be monitored
+and every string received should go into an output file. 
+When the timer is triggered a carriage return (“\n”) should be added to the output.
+The output file must be written to via an output channel in another goroutine. 
+Make sure to use at least 4 processes and incorporate delays between sending an input string in a channel
+and the delay for the timer.
+*/
+
 package main
 
 import(
