@@ -1,5 +1,7 @@
 %
-%QUESTION 1
+% QUESTION 1
+% Use a single cut in the program such that only one solution for each X is found. 
+% For example, if X =a, Y = b is found, the solution X = a, Y = c should be excluded. 
 %
 p1(X,Y):-p3(X),p2(Y,X).
 p2(X,Y):-p3(X),p4(Y),X\=Y,!.
@@ -12,13 +14,19 @@ p4(a).
 p4(b).
 
 %
-%QUESTION 2a
+% QUESTION 2a
+% Create the rule cubeLess(X,B,R) which calculates the power of 3 and the remainder such that b =x3+r. 
+% Therefore, for a query cubeLess( 2, 10, R) , the result should be R=2.
+% Note, that you will not be able to call the rule without X and B instantiated.
 %
 
 cubeLess(X,B,R) :-
 	R is (B - X**3).
 %
-%QUESTION 2b
+% QUESTION 2b
+% Use the rule cubeLess from a) to find all numbers with a cube smaller than a given limit by
+% creating a new rule smallerCube(X,B). 
+% Print your results to the console with write/1 and writeln/1 .
 %
 int(0).
 int(X) :- int(X1), X is X1+1.
@@ -50,7 +58,9 @@ smallerCube(X,B):-
 
 
 %
-%QUESTION 2c
+% QUESTION 2c
+% Create another rule restSum(B,S)to add up all the remainders from 
+% finding all cubes up to an upper limit. 
 %
 findX(X,S,B):-
 	(X+1)**3 > B,
@@ -68,7 +78,8 @@ restSum(B,S):-
 	findX(1, S, B).
 
 %
-%QUESTION 2d
+% QUESTION 2d
+% Write another rule to print all the rest sums that are multiples of 3 within a range
 %
 isMultiple(X):-
 	0 =:= X mod 3.
@@ -94,7 +105,8 @@ showAllRestSum(First,Last) :-
        showAllRestSum(F1, Last).
 
 %
-%QUESTION 3a
+% QUESTION 3a
+% Create a Prolog database representing the items that the outfitter sells. 
 %
 
 tent(dreamer, 2, 4.5, 199).
@@ -117,7 +129,10 @@ backpack(air, 10, 150).
 backpack(comfort, 15, 200).
 
 %
-%QUESTION 3b
+% QUESTION 3b
+% Paul is going camping for the first time and needs to buy a tent, sleeping bag and pad as well as
+% back pack. Write a query for Paul who likes a sleeping bag good down to at least 0 deg. Celcius,
+% and a sleeping pad of 5cm or more. Make sure to also calculate the total price of the package.
 %
 totalPrice(P1, P2, T):-
 	T is P1 + P2.
@@ -129,8 +144,13 @@ paul(B,P,T) :-
 	P >= 5,
 	totalPrice(P1, P2, T).
 %
-%QUESTION 3c
-%
+% QUESTION 3c
+% The travel company Cheap Thrills is offering a trip for 4. Mary, Sean, Paula and Thomas are
+% signed up. Create a predicate for Cheap Thrills to find equipment for their four customers. Mary
+% does not want to share a tent with Sean. Paula and Thomas would like to share a sleeping bag but
+% still need a sleeping pad. They want it all to fit in two back packs and the customers are allowed
+% to bring personal belongings of 7 kg each. 
+% 
 tripFor4(E, mary(MB, MP),
 	 sean(SB, SP),
 	 paula(PTB, PP),
@@ -154,7 +174,10 @@ tripFor4(E, mary(MB, MP),
 
 
 %
-%QUESTION 3d
+% QUESTION 3d
+% Jill and Kyle are buying equipment for their camping trip. They will each bring 5 kg of personal
+% belongings. They like the Dreamer tent for sure, want to use only one back pack and they can
+% spent up to $750 in total. Write the rule equipment2, that will produce all solutions for them
 %
 equipment2(E, jill(JillBag,JillPad),kyle(KyleBag,KylePad), tents(dreamer), backpacks(BagPack),AvailablePrice):-
 	bag(JillBag, _, _, JillBagWeight, JillBagPrice),
@@ -168,7 +191,12 @@ equipment2(E, jill(JillBag,JillPad),kyle(KyleBag,KylePad), tents(dreamer), backp
 	T =< AvailablePrice.
 
 %
-%QUESTION 3e
+% QUESTION 3e
+% Cheap Thrills wants to offer a comfort trip for which their guide carries the tents and a Heaven
+% sleeping pad for all customers. The predicate needs to return true if the number of people N can
+% be served with one guide (i.e., the guide must carry in her/his backpack all tents and sleeping
+% pads). Take into account that the guide also has to carry his/her personal belongings of 5 kg, a
+% sleeping bag and a pad. 
 %
 comfort(E, guide(GB, GP), backpacks(GBP), N):-
 	bag(_, _, _, GB, _),
