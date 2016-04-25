@@ -1,6 +1,9 @@
 #Question 2
-#Kateryna Chernega
-#7246161
+
+# File car_imperial.txt gives a list of cars and their fuel economy and trunk volume in
+# imperial units of miles per gallon and cubic feet, respectively. Write a script to generate a new
+# file car_metric.txt containing the same cars but with the fuel consumption in litres per 100 km and the
+# trunk volume in cubic meters. 
 
 readFile = open('car_imperial.txt', 'r')
 writeFile = open('car_metric.txt', 'w')
