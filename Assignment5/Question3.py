@@ -1,6 +1,16 @@
 #Question 3
-#Kateryna Chernega
-#7246161
+
+# Create a class House with the following instance variables :
+#   A list of strings for the rooms in the house
+#   A string with the name 'House'
+# House should have the following methods:
+#   A constructor with an optional argument of a list of strings. Without the optional argument
+# the object should have a list of rooms [ 'kitchen', 'living', 'dinning', 'main' ] while with an
+# optional argument ['bedroom 1', 'bedroom 2'], the list of rooms should be [ 'kitchen', 'living',
+# 'dinning', 'main', 'bedroom 1', 'bedroom 2'].
+#   A method inputSqft that allows the user to input the size of each room
+#   A method printMetric that prints all the rooms in the house but in meters instead of feet 
+
 
 class House:
     rooms = []
@@ -45,6 +55,9 @@ class House:
                                   + str(round(float(self.bedroom2Size.split("x")[1]) * 0.3048, 2))) + " m" + "\n"
             )
 
+# Derive a class Semi from House. The only new method is a constructor that works identical to
+# House and simply sets the room instance variable in House by calling the constructor in House.
+# Semi should have its name set to 'Semi'. 
 
 class Semi(House):
 
