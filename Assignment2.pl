@@ -1,7 +1,11 @@
 %
-%Assignment 2
-%Kateryna Chernega
-%7246161
+% Kateryna Chernega
+%
+
+
+% Write a predicate which
+% allows to find the smallest common ancestor of K1 and K2 in the tree T. The predicate needs to
+% print subtree T such that the root is the smallest common ancestor of K1 and K2. 
 
 treeA(X) :- X = t(73,
 		   t(31,
